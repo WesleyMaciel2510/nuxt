@@ -11,7 +11,7 @@
     name: 'VmSubheader',
 
     components: {
-      VmSearch
-    }
-  }
+      VmSearch,
+    },
+  };
 </script>

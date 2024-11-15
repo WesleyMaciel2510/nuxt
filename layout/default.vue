@@ -2,7 +2,7 @@
   <div>
     <VmHeader />
     <main>
-      <nuxt/>
+      <nuxt />
       <VmLoginModal />
       <VmSignupModal />
       <VmCheckoutModal />
@@ -12,29 +12,29 @@
 </template>
 
 <script>
-import VmHeader from '@/components/header/Header';
-import VmFooter from '@/components/footer/Footer';
-import VmLoginModal from '@/components/modal/Login';
-import VmSignupModal from '@/components/modal/Signup';
-import VmCheckoutModal from '@/components/modal/Checkout';
+  import VmHeader from '@/components/header/Header';
+  import VmFooter from '@/components/footer/Footer';
+  import VmLoginModal from '@/components/modal/Login';
+  import VmSignupModal from '@/components/modal/Signup';
+  import VmCheckoutModal from '@/components/modal/Checkout';
 
-export default {
-  components: {
-    VmHeader,
-    VmFooter,
-    VmLoginModal,
-    VmSignupModal,
-    VmCheckoutModal
-  }
-}
+  export default {
+    components: {
+      VmHeader,
+      VmFooter,
+      VmLoginModal,
+      VmSignupModal,
+      VmCheckoutModal,
+    },
+  };
 </script>
 
 <style lang="scss">
   body {
     @apply flex;
     @apply flex-col;
-    height:100vh;
-    margin:0;
+    height: 100vh;
+    margin: 0;
   }
 
   .input {

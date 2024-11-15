@@ -11,7 +11,13 @@
     <div class="flex items-center">
       <div class="mx-2">
         <div class="cursor-pointer" @click="showCheckoutModal">
-          <span :class="[numProductsAdded > 0 ? 'p-2 bg-blue text-white rounded-md' : '']">{{ numProductsAdded }}</span>
+          <span
+            :class="[
+              numProductsAdded > 0 ? 'p-2 bg-blue text-white rounded-md' : '',
+            ]"
+          >
+            {{ numProductsAdded }}
+          </span>
           <span class="icon">
             <i class="fa fa-shopping-cart"></i>
           </span>
@@ -24,7 +30,11 @@
             <i class="fa fa-user"></i>
           </span>
         </button>
-        <button class="cursor-pointer" v-if="isUserLoggedIn" @click="onShowDropdown">
+        <button
+          class="cursor-pointer"
+          v-if="isUserLoggedIn"
+          @click="onShowDropdown"
+        >
           Welcome {{ getUserName }}
         </button>
         <div v-if="showDropdown && isUserLoggedIn" class="dropdown w-52 h-28">
@@ -37,11 +47,23 @@
         </div>
         <div v-if="showDropdown && !isUserLoggedIn" class="dropdown">
           <button v-if="!isUserLoggedIn" class="button" @click="showLoginModal">
-            <span class="text-lg">Already registered?<br /> {{ loginLabel }}</span>
+            <span class="text-lg">
+              Already registered?
+              <br />
+              {{ loginLabel }}
+            </span>
             <i class="fa fa-sign-in"></i>
           </button>
-          <button v-if="!isUserLoggedIn" class="button" @click="showSignupModal">
-            <span class="text-lg">New User?<br /> {{ signupLabel }}</span>
+          <button
+            v-if="!isUserLoggedIn"
+            class="button"
+            @click="showSignupModal"
+          >
+            <span class="text-lg">
+              New User?
+              <br />
+              {{ signupLabel }}
+            </span>
             <i class="fa fa-user-plus"></i>
           </button>
         </div>
@@ -54,25 +76,25 @@
   export default {
     name: 'VmHeader',
 
-    data () {
+    data() {
       return {
         isCheckoutActive: false,
         showDropdown: false,
         logoutLabel: 'Log out',
-			  loginLabel: 'Log in',
-			  signupLabel: 'Sign up',
+        loginLabel: 'Log in',
+        signupLabel: 'Sign up',
         wishlistLabel: 'Wishlist',
-      }
+      };
     },
 
     computed: {
-      numProductsAdded () {
+      numProductsAdded() {
         return this.$store.getters.productsAdded.length;
       },
-      isUserLoggedIn () {
+      isUserLoggedIn() {
         return this.$store.getters.isUserLoggedIn;
       },
-      getUserName () {
+      getUserName() {
         let name = this.$store.getters.getUserName;
 
         if (name === '') {
@@ -80,14 +102,14 @@
         } else {
           return name;
         }
-      }
+      },
     },
 
     mounted() {
-      window.addEventListener("blur", this.closeDropdown, true);
+      window.addEventListener('blur', this.closeDropdown, true);
     },
     destroyed() {
-      window.removeEventListener("blur", this.closeDropdown);
+      window.removeEventListener('blur', this.closeDropdown);
     },
 
     methods: {
@@ -96,19 +118,19 @@
           this.showDropdown = false;
         }, 100);
       },
-      showCheckoutModal () {
+      showCheckoutModal() {
         this.$store.commit('showCheckoutModal', true);
       },
-      showLoginModal () {
+      showLoginModal() {
         this.$store.commit('showLoginModal', true);
       },
-      showSignupModal () {
+      showSignupModal() {
         this.$store.commit('showSignupModal', true);
       },
-      onShowDropdown () {
-        this.showDropdown = !this.showDropdown
+      onShowDropdown() {
+        this.showDropdown = !this.showDropdown;
       },
-      logout () {
+      logout() {
         this.$store.commit('isUserLoggedIn', false);
         this.$store.commit('isUserSignedUp', false);
         this.$store.commit('removeProductsFromFavourite');
@@ -116,7 +138,7 @@
         // redirect to homepage
         this.$router.push({ name: 'index' });
       },
-    }
+    },
   };
 </script>
 
