@@ -23,7 +23,7 @@
               <p>{{ product.price }} &euro;</p>
             </div>
             <button
-              class="rounded-xl p-3 text-white bg-red"
+              class="rounded-xl p-3 text-white bg-blue"
               @click="removeFromCart(product.id)"
             >
               {{ removeLabel }}

@@ -1,4 +1,4 @@
 export const useAuth = () => {
-  const isAuthenticated = ref(false);
+  const isAuthenticated = ref(true);
   return { isAuthenticated };
 };
