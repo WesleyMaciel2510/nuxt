@@ -2,7 +2,9 @@
   <div class="product-card">
     <img :src="image" :alt="name" class="product-image" />
     <h5 class="product-name">{{ name }}</h5>
-    <p class="product-price">${{ price.toFixed(2) }}</p>
+    <p class="product-price">
+      ${{ price ? price : 'Confirme o valor com a loja.' }}
+    </p>
     <button class="add-to-cart" @click="addToCart">Add to Cart</button>
   </div>
 </template>
@@ -11,7 +13,7 @@
   defineProps({
     image: String,
     name: String,
-    price: Number,
+    price: String,
   });
 
   const addToCart = () => {

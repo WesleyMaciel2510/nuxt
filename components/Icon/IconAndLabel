@@ -1,0 +1,28 @@
+<script setup lang="ts">
+  defineProps({
+    icon: {
+      type: String,
+      required: true,
+    },
+  });
+</script>
+
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="icon"
+    width="24"
+    height="24"
+    fill="none"
+    viewBox="0 0 24 24"
+  >
+    <use :xlink:href="icon" />
+  </svg>
+</template>
+
+<style scoped>
+  .icon {
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
+</style>

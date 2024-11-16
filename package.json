@@ -17,11 +17,12 @@
     "@iconify-json/icon-park-outline": "^1.2.1",
     "@iconify/vue": "^4.1.2",
     "@nuxt/ui": "^2.19.2",
+    "@pinia/nuxt": "^0.7.0",
     "nuxt": "^3.14.159",
+    "pinia": "^2.2.6",
     "sass": "^1.81.0",
-    "vue": "latest",
-    "vue-router": "latest",
-    "vuex": "^4.1.0"
+    "vue": "^3.5.13",
+    "vue-router": "latest"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.6.1",
@@ -38,6 +39,7 @@
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8",
     "sass-embedded": "^1.81.0",
-    "tailwindcss": "^3.4.15"
+    "tailwindcss": "^3.4.15",
+    "vuex": "^4.1.0"
   }
 }
