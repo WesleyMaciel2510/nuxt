@@ -1,14 +1,34 @@
 <script setup lang="ts">
   import { reactive } from 'vue';
+  import { useRouter } from 'vue-router';
+  import { useAuth } from '~/store/auth';
 
   const state = reactive({
-    email: '',
+    username: '',
     password: '',
   });
 
-  const handleLogin = (event: Event) => {
+  const router = useRouter();
+  const { login } = useAuth();
+
+  const handleLogin = async (event: Event) => {
     event.preventDefault();
-    console.log('Email:', state.email, 'Password:', state.password);
+    console.log('Username:', state.username, 'Password:', state.password);
+
+    try {
+      console.log('Username:', state.username, 'Password:', state.password);
+
+      const loginSuccess = await login({
+        username: state.username,
+        password: state.password,
+      });
+
+      if (loginSuccess) {
+        router.push('/dashboard');
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+    }
   };
 </script>
 
@@ -18,11 +38,11 @@
       <h1 class="title">Welcome Back</h1>
       <p class="subtitle">Log in to access your account</p>
       <UForm :state="state" @submit="handleLogin" class="login-form">
-        <UFormGroup label="Email" class="form-item">
+        <UFormGroup label="Username" class="form-item">
           <UInput
-            v-model="state.email"
-            placeholder="Enter your email"
-            type="email"
+            v-model="state.username"
+            placeholder="Enter your username"
+            type="username"
             required
             size="lg"
             class="input-field"
