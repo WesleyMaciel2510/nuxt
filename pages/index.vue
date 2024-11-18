@@ -4,7 +4,6 @@
 
   const { isAuthenticated } = useAuth();
 
-  // Redirect based on authentication state
   if (isAuthenticated.value) {
     navigateTo('/dashboard');
   } else {

@@ -237,12 +237,13 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    background-color: #171818;
+    background-color: #000;
   }
 
   .logo {
     display: flex;
     align-items: center;
+    color: #fff;
   }
 
   .menu-icon {
@@ -258,10 +259,12 @@
     margin: 0;
     padding: 0;
     gap: 15px;
+    color: #fff;
   }
 
   .navigation li {
     margin: 0 15px;
+    color: #fff;
   }
 
   .search-box {
@@ -292,6 +295,7 @@
     font-size: 22px;
     margin-left: 20px;
     cursor: pointer;
+    color: #fff;
   }
 
   /* Circular Sign-Out Icon */

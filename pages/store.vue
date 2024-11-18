@@ -101,6 +101,7 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    background-color: #000;
   }
 
   .store-header {
