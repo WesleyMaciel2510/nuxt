@@ -45,9 +45,16 @@
       </div>
     </section>
 
-    <!-- Contact Button -->
-    <section class="contact-section">
-      <button class="btn contact-us">Contact Us</button>
+    <!-- Contact and Add Product Buttons Section -->
+    <section class="buttons-row">
+      <!-- Contact Button -->
+      <div class="button-container">
+        <button class="btn contact-us">Contact Us</button>
+      </div>
+      <!-- Add Product Button -->
+      <div class="button-container">
+        <button class="btn add-product">Add Product</button>
+      </div>
     </section>
   </div>
 </template>
@@ -210,22 +217,42 @@
     transition: background-color 0.3s ease;
   }
 
+  .btn:hover {
+    background-color: #2563eb;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
   .add-to-cart {
     margin-top: 1rem;
   }
 
-  .btn:hover {
-    background-color: #007bff;
+  .buttons-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
   }
 
-  .contact-us {
-    margin-top: 2rem;
-    background-color: #007bff;
+  .button-container {
+    flex: 1;
+    text-align: center;
+  }
+
+  .btn {
+    padding: 15px 25px;
+    font-size: 16px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     transition: background-color 0.3s ease;
   }
 
-  .contact-us:hover {
-    background-color: #0056b3;
+  .btn:hover {
+    background-color: #3b82f6;
   }
 
   @media (max-width: 768px) {

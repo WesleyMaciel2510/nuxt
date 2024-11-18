@@ -146,7 +146,6 @@
 <script setup lang="ts">
   import Header from '~/components/header/Header.vue';
   import VmHero from '~/components/hero/Hero.vue';
-  import Footer from '~/components/footer/Footer.vue';
   import CarouselCard from '~/components/carousel/cards.vue';
   import CategoryCard from '~/components/category/categoryCard.vue';
   import ProductCard from '~/components/product/productCard.vue';

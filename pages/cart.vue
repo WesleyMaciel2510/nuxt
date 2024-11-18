@@ -2,7 +2,7 @@
   <Header />
 
   <div class="cart-container">
-    <h1>Your Cart</h1>
+    <h1>Items in your Cart</h1>
 
     <div v-if="cartItems.length === 0" class="empty-cart">
       <p>Your cart is empty!</p>
@@ -186,16 +186,17 @@
 <style scoped>
   .cart-container {
     padding: 20px;
-    max-width: 900px;
     margin: auto;
     font-family: Arial, sans-serif;
+    background-color: #000;
+    min-height: 600px;
   }
 
   h1 {
     text-align: center;
     margin-bottom: 20px;
     font-size: 24px;
-    color: #333;
+    color: #fff;
   }
 
   .cart-items {
