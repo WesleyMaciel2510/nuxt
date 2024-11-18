@@ -1,47 +1,45 @@
+<script setup lang="ts">
+  import { reactive } from 'vue';
+
+  const state = reactive({
+    email: '',
+    password: '',
+  });
+
+  const handleLogin = (event: Event) => {
+    event.preventDefault();
+    console.log('Email:', state.email, 'Password:', state.password);
+  };
+</script>
+
 <template>
   <div class="login-page">
     <UContainer class="form-container">
       <h1 class="title">Welcome Back</h1>
       <p class="subtitle">Log in to access your account</p>
-      <UForm @submit="handleLogin" class="login-form" align="center" gap="md">
-        <UFormItem label="Email" required class="form-item">
+      <UForm :state="state" @submit="handleLogin" class="login-form">
+        <UFormGroup label="Email" class="form-item">
           <UInput
-            v-model="email"
+            v-model="state.email"
             placeholder="Enter your email"
             type="email"
-            variant="outlined"
             required
             size="lg"
+            class="input-field"
           />
-        </UFormItem>
-        <UFormItem label="Password" required class="form-item">
+        </UFormGroup>
+        <UFormGroup label="Password" class="form-item">
           <UInput
-            v-model="password"
+            v-model="state.password"
             placeholder="Enter your password"
             type="password"
-            variant="outlined"
             required
             size="lg"
+            class="input-field"
           />
-        </UFormItem>
+        </UFormGroup>
         <div class="form-actions">
-          <UButton
-            type="submit"
-            class="login-button"
-            size="lg"
-            style="
-              background: linear-gradient(135deg, #667eea, #764ba2);
-              color: white;
-              border: none;
-              width: 100%;
-              text-align: center;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            "
-          >
-            Log In
-          </UButton>
+          <UButton type="submit" class="login-button">Log In</UButton>
         </div>
       </UForm>
       <div class="form-footer">
@@ -56,21 +54,6 @@
     </UContainer>
   </div>
 </template>
-
-<script setup lang="ts">
-  import { ref } from 'vue';
-
-  // State for form inputs
-  const email = ref('');
-  const password = ref('');
-
-  // Handle form submission
-  const handleLogin = (event: Event) => {
-    event.preventDefault();
-    // Perform login logic here (e.g., API call)
-    console.log('Email:', email.value, 'Password:', password.value);
-  };
-</script>
 
 <style scoped>
   .login-page {
@@ -107,10 +90,7 @@
   .login-form {
     display: flex;
     flex-direction: column;
-  }
-
-  .form-item {
-    margin-bottom: 1rem;
+    gap: 1rem;
   }
 
   .form-actions {
@@ -118,10 +98,17 @@
   }
 
   .login-button {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
     border-radius: 8px;
     font-weight: 600;
-    transition: all 0.3s ease;
     height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    transition: opacity 0.3s ease;
   }
 
   .login-button:hover {
@@ -145,5 +132,25 @@
 
   .link:hover {
     text-decoration: underline;
+  }
+
+  .input-field {
+    background-color: white !important;
+    color: #333;
+    border: 1px solid #ccc;
+  }
+
+  .input-field::placeholder {
+    color: black !important;
+  }
+
+  .form-item label {
+    color: black !important;
+    font-weight: normal;
+  }
+
+  .input-field:focus {
+    border-color: #667eea;
+    outline: none;
   }
 </style>
