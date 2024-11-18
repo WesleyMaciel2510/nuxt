@@ -85,6 +85,7 @@
 
 <script setup>
   import { ref, computed } from 'vue';
+  const router = useRouter();
 
   // Cart data
   const cartItems = ref([
@@ -176,6 +177,7 @@
   // Checkout logic (this can be expanded for actual navigation)
   const goToCheckout = () => {
     console.log('Proceeding to checkout');
+    router.push('/purchase');
   };
 
   // Dynamic image path resolution function

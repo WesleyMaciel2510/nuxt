@@ -239,6 +239,7 @@
   .button-container {
     flex: 1;
     text-align: center;
+    width: 400px;
   }
 
   .btn {

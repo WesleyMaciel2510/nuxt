@@ -2,65 +2,54 @@
   <Header />
 
   <div class="purchase-container">
-    <h2>Confirm Your Purchase</h2>
+    <h2 class="main-heading">Confirm Your Purchase</h2>
 
     <!-- Delivery Address Section -->
     <div class="section">
       <h2>Delivery Address</h2>
       <form @submit.prevent="submitForm">
-        <div class="form-group">
-          <label for="address">Street Address</label>
-          <input
-            v-model="form.address"
-            type="text"
-            id="address"
-            placeholder="Enter your street address"
-            required
-          />
+        <div class="form-row">
+          <div class="form-group">
+            <label for="address">Street Address</label>
+            <input
+              v-model="form.address"
+              type="text"
+              id="address"
+              placeholder="Enter your street address"
+              required
+            />
+          </div>
         </div>
 
-        <div class="form-group">
-          <label for="city">City</label>
-          <input
-            v-model="form.city"
-            type="text"
-            id="city"
-            placeholder="Enter your city"
-            required
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="postalCode">Postal Code</label>
-          <input
-            v-model="form.postalCode"
-            type="text"
-            id="postalCode"
-            placeholder="Enter your postal code"
-            required
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="country">Country</label>
-          <select v-model="form.country" id="country" required>
-            <option value="" disabled>Select your country</option>
-            <option
-              v-for="country in countries"
-              :key="country"
-              :value="country"
-            >
-              {{ country }}
-            </option>
-          </select>
+        <div class="form-row">
+          <div class="form-group half-width">
+            <label for="city">City</label>
+            <input
+              v-model="form.city"
+              type="text"
+              id="city"
+              placeholder="Enter your city"
+              required
+            />
+          </div>
+          <div class="form-group half-width">
+            <label for="postalCode">Postal Code</label>
+            <input
+              v-model="form.postalCode"
+              type="text"
+              id="postalCode"
+              placeholder="Enter your postal code"
+              required
+            />
+          </div>
         </div>
       </form>
     </div>
 
-    <!-- Payment Method Section with Dropdown -->
+    <!-- Payment Method Section -->
     <div class="section">
       <h2>Payment Method</h2>
-      <div class="form-group">
+      <div class="form-group payment-method">
         <label for="paymentMethod">Select Payment Method</label>
         <UInputMenu v-model="selectedPaymentMethod" :options="paymentMethods" />
       </div>
@@ -82,36 +71,34 @@
     address: '',
     city: '',
     postalCode: '',
-    country: '',
-    paymentMethod: '',
   });
 
   // Country and Payment Methods
   const countries = ['United States', 'Canada', 'United Kingdom', 'Australia'];
-  const paymentMethods = ['Credit Card', 'PayPal', 'Apple Pay'];
+  const paymentMethods = ['Credit Card', 'PayPal', 'Pix', 'Debit Card', 'Cash'];
 
   // Selected payment method
   const selectedPaymentMethod = ref(paymentMethods[0]);
 
   const submitForm = () => {
-    // Add logic for form submission (e.g., API call)
     console.log('Form submitted:', form.value);
   };
 </script>
 
 <style scoped>
   .purchase-container {
-    max-width: 800px;
     margin: auto;
     padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
+    background-color: #000;
+    color: #000;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
   }
 
-  h1 {
+  .main-heading {
     text-align: center;
     margin-bottom: 20px;
-    color: #333;
+    font-size: 2rem;
+    font-weight: bold;
   }
 
   .section {
@@ -121,53 +108,76 @@
   h2 {
     font-size: 1.5rem;
     margin-bottom: 15px;
-    color: #444;
+    color: #fff;
+    font-weight: bold;
   }
 
-  .form-group {
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
     margin-bottom: 15px;
   }
 
+  .form-group {
+    flex: 1;
+    min-width: 100%;
+  }
+
+  .form-group.half-width {
+    flex: 0 0 calc(50% - 10px);
+  }
+
   label {
-    font-weight: bold;
-    color: #444;
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #ddd;
   }
 
   input,
   select,
   .UInputMenu {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-top: 5px;
+    padding: 12px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    background-color: #1a1a1a;
+    color: #1a1a1a;
+    transition:
+      border-color 0.2s,
+      box-shadow 0.2s;
   }
 
-  select {
-    padding: 8px;
+  input:focus,
+  select:focus,
+  .UInputMenu:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+    outline: none;
   }
 
-  .UInputMenu {
-    padding: 8px;
-  }
-
-  .confirmation {
-    text-align: center;
+  .form-group.payment-method {
+    max-width: 300px;
   }
 
   .submit-btn {
-    width: 100%;
     padding: 15px;
-    background-color: #007bff;
+    background-color: #3b82f6;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition:
+      background-color 0.2s,
+      box-shadow 0.2s;
   }
 
   .submit-btn:hover {
-    background-color: #0056b3;
+    background-color: #2563eb;
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.6);
   }
 
   @media (max-width: 768px) {
@@ -175,17 +185,17 @@
       padding: 15px;
     }
 
-    h1 {
-      font-size: 1.3rem;
+    .main-heading {
+      font-size: 1.5rem;
     }
 
     .section h2 {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
     }
 
-    .form-group input,
-    .form-group select {
-      padding: 8px;
+    input,
+    select {
+      padding: 10px;
     }
 
     .submit-btn {
