@@ -57,6 +57,7 @@
       </div>
     </section>
   </div>
+  <Footer />
 </template>
 
 <script setup>

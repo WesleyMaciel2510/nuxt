@@ -7,92 +7,7 @@
       <!-- Left Column for Links -->
       <div class="left-column">
         <h3>Product Categories</h3>
-        <ul>
-          <li>
-            <a href="#">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="1em"
-                height="1em"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 18h.01M7 21h10a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2"
-                />
-              </svg>
-              Smartphones
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="1em"
-                height="1em"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9.75 17L9 20l-1 1h8l-1-1l-.75-3M3 13h18M5 17h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2"
-                />
-              </svg>
-              Screens
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="1em"
-                height="1em"
-                viewBox="0 0 24 24"
-              >
-                <g
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                >
-                  <path
-                    d="M3 9a2 2 0 0 1 2-2h.93a2 2 0 0 0 1.664-.89l.812-1.22A2 2 0 0 1 10.07 4h3.86a2 2 0 0 1 1.664.89l.812 1.22A2 2 0 0 0 18.07 7H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
-                  />
-                  <path d="M15 13a3 3 0 1 1-6 0a3 3 0 0 1 6 0" />
-                </g>
-              </svg>
-              Cameras
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="1em"
-                height="1em"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm10 0a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2zM4 16a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm10 0a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2z"
-                />
-              </svg>
-              Games
-            </a>
-          </li>
-        </ul>
+        <ProductCategories />
       </div>
 
       <!-- Right Column for Image -->
@@ -141,6 +56,7 @@
       </div>
     </section>
   </div>
+  <Footer />
 </template>
 
 <script setup lang="ts">
@@ -161,6 +77,8 @@
   import PC from '~/assets/products/pc.png';
   import Ring from '~/assets/products/ring.png';
   import Tissue from '~/assets/products/tissue.png';
+  import ProductCategories from '~/components/category/productCategories.vue';
+  import Footer from '~/components/footer/Footer.vue';
 
   const categories = [
     { id: 1, name: 'Electronics', icon: 'i-heroicons-light-chip' },
@@ -256,7 +174,7 @@
   /* Left Column Design */
   .left-column {
     width: 30%;
-    padding: 20px;
+    padding: 10px;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -278,7 +196,7 @@
   }
 
   .left-column ul li {
-    margin-bottom: 15px;
+    margin-bottom: 14px;
   }
 
   .left-column ul li a {

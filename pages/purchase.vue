@@ -71,6 +71,7 @@
       <button @click="submitForm" class="submit-btn">Confirm Purchase</button>
     </div>
   </div>
+  <Footer />
 </template>
 
 <script setup lang="ts">

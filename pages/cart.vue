@@ -80,6 +80,7 @@
       </div>
     </div>
   </div>
+  <Footer />
 </template>
 
 <script setup>
@@ -137,7 +138,7 @@
   const applyCoupon = () => {
     if (couponCode.value === 'SAVE10') {
       discountApplied.value = true;
-      discountAmount.value = totalAmount.value * 0.1; // 10% discount
+      discountAmount.value = totalAmount.value * 0.1;
     } else {
       discountApplied.value = false;
       discountAmount.value = 0;
