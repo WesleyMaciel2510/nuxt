@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <VmHero />
   <div class="dashboard">
     <!-- Main Content Section with Flex Layout -->
@@ -89,12 +90,6 @@
                 />
               </svg>
               Games
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="icon-camera" />
-              Cameras
             </a>
           </li>
         </ul>

@@ -1,4 +1,6 @@
 <template>
+  <Header />
+
   <div class="cart-container">
     <h1>Your Cart</h1>
 

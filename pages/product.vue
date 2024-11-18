@@ -1,4 +1,6 @@
 <template>
+  <Header />
+
   <div class="product-container">
     <div class="product-header">
       <h1>{{ product.name }}</h1>

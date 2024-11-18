@@ -1,29 +1,6 @@
-<script setup lang="ts">
-  import { ref } from 'vue';
-
-  // Form data
-  const form = ref({
-    address: '',
-    city: '',
-    postalCode: '',
-    country: '',
-    paymentMethod: '',
-  });
-
-  // Country and Payment Methods
-  const countries = ['United States', 'Canada', 'United Kingdom', 'Australia'];
-  const paymentMethods = ['Credit Card', 'PayPal', 'Apple Pay'];
-
-  // Selected payment method
-  const selectedPaymentMethod = ref(paymentMethods[0]);
-
-  const submitForm = () => {
-    // Add logic for form submission (e.g., API call)
-    console.log('Form submitted:', form.value);
-  };
-</script>
-
 <template>
+  <Header />
+
   <div class="purchase-container">
     <h2>Confirm Your Purchase</h2>
 
@@ -95,6 +72,31 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+  import { ref } from 'vue';
+
+  // Form data
+  const form = ref({
+    address: '',
+    city: '',
+    postalCode: '',
+    country: '',
+    paymentMethod: '',
+  });
+
+  // Country and Payment Methods
+  const countries = ['United States', 'Canada', 'United Kingdom', 'Australia'];
+  const paymentMethods = ['Credit Card', 'PayPal', 'Apple Pay'];
+
+  // Selected payment method
+  const selectedPaymentMethod = ref(paymentMethods[0]);
+
+  const submitForm = () => {
+    // Add logic for form submission (e.g., API call)
+    console.log('Form submitted:', form.value);
+  };
+</script>
 
 <style scoped>
   .purchase-container {

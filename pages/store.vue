@@ -1,4 +1,6 @@
 <template>
+  <Header />
+
   <div class="store-page">
     <!-- Store Section -->
     <section class="store-header">

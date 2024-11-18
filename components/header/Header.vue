@@ -130,7 +130,7 @@
       <button
         class="icon sign-out"
         aria-label="Sign Out"
-        @click="toggleVerticalNav"
+        @click="Logout"
         @click.stop
       >
         <svg
@@ -221,8 +221,13 @@
   });
 
   // Function to toggle visibility of the vertical navigation
-  const toggleVerticalNav = () => {
-    //isVerticalNavVisible.value = !isVerticalNavVisible.value;
+  const Logout = () => {
+    // Clear authentication-related data (e.g., tokens, user data)
+    //localStorage.removeItem('authToken');
+    //this.$cookies.remove('authToken');
+
+    const router = useRouter();
+    router.push('/login');
   };
 </script>
 
@@ -232,7 +237,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    background-color: #2596be;
+    background-color: #171818;
   }
 
   .logo {
@@ -291,7 +296,7 @@
 
   /* Circular Sign-Out Icon */
   .sign-out {
-    background-color: #2596be;
+    background-color: #3b82f6;
     border-radius: 10%;
     padding: 10px;
     margin-left: 20px;
